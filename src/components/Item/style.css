@@ -1,0 +1,24 @@
+.modal-image {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 100;
+}
+
+.modal-image img {
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+}
+
+.modal-image .picture-info {
+    visibility: visible;
+}
+
+.svg-inline--fa.fa-times {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}

@@ -1,0 +1,27 @@
+.picture-wrapper {
+    cursor: pointer;
+    padding: 8px;
+}
+
+.picture-info {
+    position: relative;
+    visibility: hidden;
+    width: 100%;
+}
+
+.picture-info .position-absolute {
+    background-color: rgba(0, 0, 0, 0.2);
+    bottom: 0;
+    color: white;
+    padding: 15px;
+    width: 100%;
+}
+
+.picture-wrapper:hover .picture-info {
+    visibility: visible;
+}
+
+.no-padding-sides {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

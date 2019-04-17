@@ -1,0 +1,9 @@
+html,
+body {
+  height: 100%;
+}
+
+.container.img-container, .row.search-container {
+  margin: 0 auto;
+  max-width: 720px;
+}
