@@ -66,13 +66,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container"
+      <div className="container-fluid"
       >
-        <section className="row search-container">
-          <div className="input-group mb-3">
-            <Input type="text" className="form-control" placeholder="Search" value={this.state.value} handleChange={this.handleChange} />
-            <div className="input-group-append">
-              <Button text="Search" className="btn-success" onClick={this.searchImages}></Button>
+        <section className="jumbotron search-header">
+          <div className="container search-container">
+            <div className="input-group mb-3">
+              <Input type="text" className="form-control" placeholder="Search for Images" value={this.state.value} handleChange={this.handleChange} />
+              <div className="input-group-append">
+                <Button text="Search" className="btn-success" onClick={this.searchImages}></Button>
+              </div>
             </div>
           </div>
         </section>

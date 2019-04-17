@@ -4,3 +4,12 @@
   justify-content: center;
   vertical-align: middle;
 }
+
+.container.img-container, .container.search-container {
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+.search-header {
+  background-color: transparent;
+}
