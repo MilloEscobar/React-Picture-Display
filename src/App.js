@@ -5,12 +5,14 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import Button from "./components/Button";
 import Input from "./components/Input";
-import Item from "./components/Item";
+import ItemList from "./components/ItemList";
 import ImageModal from "./components/ImageModal";
 
 import "./App.css";
 
 library.add(faTimes);
+const API_KEY = '70f61f20135023633c1c4f91912dc99e4cce0d7cf998640d9281ae2c6bfe976b';
+const URL_BASE = 'https://api.unsplash.com/';
 class App extends Component {
   constructor() {
     super();
@@ -19,13 +21,12 @@ class App extends Component {
       data: null,
       windowSize: null,
       resultsName: null,
-      itemToRender:null,
+      itemToRender: null,
     }
   }
-  APIKEY = '70f61f20135023633c1c4f91912dc99e4cce0d7cf998640d9281ae2c6bfe976b';
   componentDidMount() {
     if (!localStorage.getItem('pictures')) {
-      fetch('https://api.unsplash.com/photos/?client_id=' + this.APIKEY)
+      fetch(URL_BASE + 'photos/?client_id=' + API_KEY)
         .then(response => response.json())
         .then(data => {
           localStorage.setItem('pictures', JSON.stringify(data));
@@ -48,7 +49,7 @@ class App extends Component {
   }
 
   searchImages = () => {
-    fetch('https://api.unsplash.com/search/photos?page=1&query=' + this.state.value + '&client_id=' + this.APIKEY)
+    fetch(URL_BASE + '/search/photos?page=1&query=' + this.state.value + '&client_id=' + API_KEY)
       .then(response => response.json())
       .then(data => {
         this.setState({ data: data.results, value: '' })
@@ -61,32 +62,6 @@ class App extends Component {
 
   renderImageModal = (index) => {
     index !== null ? this.setState({ itemToRender: this.state.data[index] }) : this.setState({ itemToRender: null });
-  }
-
-  renderPictures = () => {
-    if (this.state.data) {
-      let column1 = [];
-      let column2 = [];
-      this.state.data.map((item, index, array) => {
-        if (index < array.length / 2) {
-          column1.push(<Item item={item} key={item.id} onClick={() => this.renderImageModal(index)}/>);
-        } else {
-          column2.push(<Item item={item} key={item.id} onClick={() => this.renderImageModal(index)}/>);
-        }
-      })
-      return (
-        <>
-          <div className="col-sm-12 col-md-6 no-padding-sides">
-            {column1}
-          </div>
-          <div className="col-sm-12 col-md-6 no-padding-sides">
-            {column2}
-          </div>
-        </>
-      )
-    } else {
-      return (<h1>Loading...</h1>)
-    }
   }
 
   render() {
@@ -103,11 +78,11 @@ class App extends Component {
         </section>
         <section className="container img-container">
           <div className="row">
-            {this.renderPictures()}
+            <ItemList items={this.state.data} renderImageModal={this.renderImageModal} />
           </div>
         </section>
         {this.state.itemToRender &&
-          <ImageModal item={this.state.itemToRender} onClick={() => this.renderImageModal(null)}/>
+          <ImageModal item={this.state.itemToRender} onClick={() => this.renderImageModal(null)} />
         }
       </div>
     );
