@@ -8,12 +8,12 @@
             "DeploymentBucketName": "amplify-exampleapp-dev-102954-deployment",
             "UnauthRoleName": "amplify-exampleapp-dev-102954-unauthRole",
             "StackName": "amplify-exampleapp-dev-102954",
-            "StackId": "arn:aws:cloudformation:us-east-1:039636689385:stack/amplify-exampleapp-dev-102954/10ba4b00-d802-11ea-905c-0a4fdb0c1726",
-            "AmplifyAppId": "d2uxjahnoucps7"
+            "StackId": "arn:aws:cloudformation:us-east-1:039636689385:stack/amplify-exampleapp-dev-102954/9eb1e770-d81a-11ea-8650-0e0494eb61ff",
+            "AmplifyAppId": "dkivsuvymwu2k"
         },
         "categories": {
             "auth": {
-                "exampleappa2f2e3ee": {}
+                "example58f44d54": {}
             }
         }
     }

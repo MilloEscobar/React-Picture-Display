@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"exampleappa2f2e3ee": {
+		"example58f44d54": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
