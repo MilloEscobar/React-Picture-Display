@@ -10,6 +10,8 @@ import ImageModal from "./components/ImageModal";
 
 import "./App.css";
 
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+
 library.add(faTimes);
 const API_KEY = '70f61f20135023633c1c4f91912dc99e4cce0d7cf998640d9281ae2c6bfe976b';
 const URL_BASE = 'https://api.unsplash.com/';
@@ -86,9 +88,10 @@ class App extends Component {
         {this.state.itemToRender &&
           <ImageModal item={this.state.itemToRender} onClick={() => this.renderImageModal(null)} />
         }
+        <AmplifySignOut />
       </div>
     );
   }
 }
 
-export default App;
+export default withAuthenticator(App);
